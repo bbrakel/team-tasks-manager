@@ -3,8 +3,8 @@
 namespace Tests\Feature\Models;
 
 use App\Models\User;
-use Illuminate\Support\Collection;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Collection;
 
 uses(LazilyRefreshDatabase::class);
 

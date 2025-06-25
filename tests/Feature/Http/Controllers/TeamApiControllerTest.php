@@ -10,7 +10,7 @@ uses(LazilyRefreshDatabase::class);
 test('admins can index teams', function (): void {
     $user = User::factory()->admin()->create();
     $this->actingAs($user);
-    
+
     $response = $this->getJson('/api/v1/teams');
 
     $response->assertStatus(200);
@@ -19,7 +19,7 @@ test('admins can index teams', function (): void {
 test('admins can show teams', function (): void {
     $user = User::factory()->admin()->create();
     $this->actingAs($user);
-    
+
     $team = Team::factory()->create();
 
     $response = $this->getJson(`/api/v1/teams/{$team->id}`);
@@ -30,7 +30,7 @@ test('admins can show teams', function (): void {
 test('admins can store teams', function (): void {
     $user = User::factory()->admin()->create();
     $this->actingAs($user);
-    
+
     $payload = Team::factory()->make();
 
     $response = $this->postJson('/api/v1/teams', [
@@ -46,7 +46,7 @@ test('admins can store teams', function (): void {
 test('admins can update teams', function (): void {
     $user = User::factory()->admin()->create();
     $this->actingAs($user);
-    
+
     $team = Team::factory()->create();
     $payload = Team::factory()->make();
 
@@ -64,9 +64,9 @@ test('admins can update teams', function (): void {
 test('admins can destroy teams', function (): void {
     $user = User::factory()->admin()->create();
     $this->actingAs($user);
-    
+
     $team = Team::factory()->create();
-    
+
     $response = $this->deleteJson(`/api/v1/teams/{$team->id}`);
 
     $response->assertStatus(200);

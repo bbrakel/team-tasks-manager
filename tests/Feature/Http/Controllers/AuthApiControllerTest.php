@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Feature\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
@@ -39,4 +40,3 @@ test('users can login', function (): void {
 
     $response->assertStatus(200);
 });
-

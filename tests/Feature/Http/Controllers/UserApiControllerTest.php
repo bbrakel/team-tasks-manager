@@ -10,7 +10,7 @@ uses(LazilyRefreshDatabase::class);
 test('users can index users', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $response = $this->getJson('/api/v1/users');
 
     $response->assertStatus(200);
@@ -19,7 +19,7 @@ test('users can index users', function (): void {
 test('users can show users', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $user = User::factory()->create();
 
     $response = $this->getJson(`/api/v1/users/{$user->id}`);
@@ -30,7 +30,7 @@ test('users can show users', function (): void {
 test('users can update users', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $user = User::factory()->create();
     $payload = User::factory()->make();
 
@@ -45,12 +45,12 @@ test('users can update users', function (): void {
     ]);
 });
 
-test('users can destroy users', function (): void {   
+test('users can destroy users', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $user = User::factory()->create();
-    
+
     $response = $this->deleteJson(`/api/v1/users/{$user->id}`);
 
     $response->assertStatus(200);

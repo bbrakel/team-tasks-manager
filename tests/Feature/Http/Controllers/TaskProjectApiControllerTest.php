@@ -36,7 +36,7 @@ test('users can index tasks for projects with filter', function (): void {
 test('users can store tasks for projects', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $project = Project::factory()->create();
 
     $payload = Task::factory()->make();

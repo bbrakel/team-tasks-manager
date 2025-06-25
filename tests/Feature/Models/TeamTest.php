@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Feature\Models;
+
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
 uses(LazilyRefreshDatabase::class);

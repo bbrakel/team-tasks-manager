@@ -10,7 +10,7 @@ uses(LazilyRefreshDatabase::class);
 test('users can show tasks', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $task = Task::factory()->create();
 
     $response = $this->getJson(`/api/v1/tasks/{$task->id}`);
@@ -21,7 +21,7 @@ test('users can show tasks', function (): void {
 test('users can update tasks', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $task = Task::factory()->create();
     $payload = Task::factory()->make();
 
@@ -39,9 +39,9 @@ test('users can update tasks', function (): void {
 test('users can destroy tasks', function (): void {
     $user = User::factory()->create();
     $this->actingAs($user);
-    
+
     $task = Task::factory()->create();
-    
+
     $response = $this->deleteJson(`/api/v1/tasks/{$task->id}`);
 
     $response->assertStatus(200);
